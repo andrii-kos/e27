@@ -1,0 +1,21 @@
+Content-Length: 164
+Date: Tue, 30 Jan 2024 10:07:55 GMT
+Content-Type: text/plain
+Last-Modified: Tue, 28 Nov 2023 07:45:56 GMT
+Etag: "1b5-60b319bdf5e20-gzip"
+Vary: Accept-Encoding
+Content-Encoding: gzip
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: http://*.hotjar.com:* https://*.hotjar.com:* http://*.hotjar.io https://*.hotjar.io wss://*.hotjar.com 'unsafe-inline' 'unsafe-eval'
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Cache-Control: max-age=31536000
+Cf-Cache-Status: HIT
+Age: 1929
+Accept-Ranges: bytes
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=d4JfxpBoshqXolRW%2FRfT0pzVtVK7r%2FpZ1%2BsGfDNiVQlOqtcR%2FsQiywvut2XGKnEp1nkIc%2B3UR5lRyWPaDaVzPkgo%2BmzaBlVQwMUu6%2Fa0dcCB4SyqwkkFDw%3D%3D"}],"group":"cf-nel","max_age":604800}
+Nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+Cf-Ray: 84d8e922ffbe5b79-VIE

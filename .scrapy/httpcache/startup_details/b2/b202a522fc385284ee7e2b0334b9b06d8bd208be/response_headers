@@ -1,0 +1,21 @@
+Date: Tue, 30 Jan 2024 10:07:55 GMT
+Content-Type: application/json
+Vary: Accept-Encoding
+Set-Cookie: PHPSESSID=j1tuhnso6gjs0psnu9hlqv1rkf; path=/
+Set-Cookie: ci_session=a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22399f982b28930ea209657cd106d182ff%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A14%3A%22172.70.143.162%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A35%3A%22Scrapy%2F2.11.0+%28%2Bhttps%3A%2F%2Fscrapy.org%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1706609275%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7D5265c8c682c004f4c031c1aeae78a88e; expires=Thu, 29-Jan-2026 10:07:55 GMT; Max-Age=63072000; path=/; domain=.e27.co
+Set-Cookie: ci_session=a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2234e941a3347c7747edfa901efb6fd1ca%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A14%3A%22172.70.143.162%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A35%3A%22Scrapy%2F2.11.0+%28%2Bhttps%3A%2F%2Fscrapy.org%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1706609275%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7Dc0928f90ee9ec2b844209131f2b52933; expires=Thu, 29-Jan-2026 10:07:55 GMT; Max-Age=63072000; path=/; domain=.e27.co
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: http://*.hotjar.com:* https://*.hotjar.com:* http://*.hotjar.io https://*.hotjar.io wss://*.hotjar.com 'unsafe-inline' 'unsafe-eval'
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Content-Encoding: gzip
+Cf-Cache-Status: DYNAMIC
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=aZxp8UhtyWesEgHgih3IryYJRjdEyl%2FDjLoPUmFe9%2FJhQPEEYLOqojbs5IqdH1AldChojRHalZMYl4%2BoFLUdJZCUbteCDQECw2H1eZQCBIYgm0CxlS%2BJHA%3D%3D"}],"group":"cf-nel","max_age":604800}
+Nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+Cf-Ray: 84d8e92378a05b79-VIE
