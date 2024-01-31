@@ -4,14 +4,34 @@ from typing import List
 
 from scrapy.loader import ItemLoader
 from itemloaders.processors import Join, MapCompose, TakeFirst
-
+import re
 
 class StartupUrlItem(Item):
     link = Field()
 
 
+class User(Item):
+    startup_id = Field()
+    startup_name = Field()
+    user_id = Field()
+    name = Field()
+    headline = Field()
+    url = Field()
+
+
+def find_founder(member):
+    if member['headline']:
+        print(member['headline'])
+        if re.search(rf'founder ?[\w]* ?{member['startup_name']}', member['headline'], re.IGNORECASE):
+            return member['name']
+    return None
+
 class Startup(Item):
-    id: str | None = Field()
+    id = Field()
+    founders = Field(
+        input_processor=MapCompose(find_founder),
+        output_processor=Join(', ')
+    )
     company_name = Field()
     profile_url = Field()
     company_website = Field()
@@ -27,9 +47,6 @@ class Startup(Item):
     founding_date = Field(
         input_processor=MapCompose(str.strip, lambda value: value if value else None),
         output_processor=Join('-')
-    )
-    founders = Field(
-         output_processor=Join(', ')
     )
     location = Field()
     employee_range = Field(

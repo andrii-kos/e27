@@ -1,5 +1,5 @@
 import scrapy
-from tutorial.items import Startup, StartupLoader
+from tutorial.items import Startup, StartupLoader, User
 from urllib.parse import urlparse
 import json
 
@@ -16,9 +16,8 @@ class StartupDetails(scrapy.Spider):
 
 
     def parse_starup(self, response):
-        print(response.body)
         l = StartupLoader(item=Startup(), response=response)
-        startups_details = json.loads(response.body).get('data')
+        startups_details = response.json()['data']
         l.add_value('id', startups_details.get("id"))
         l.add_value('company_name', startups_details.get("name"))
         l.add_value('company_website', startups_details.get("website"))
@@ -40,4 +39,26 @@ class StartupDetails(scrapy.Spider):
         l.add_value('urls_social', startups_details.get("rss_feed"))
         l.add_value('description_short', startups_details.get("short_description"))
         l.add_value('description', startups_details.get("description"))
-        return l.load_item()
+        yield scrapy.Request(
+            f'https://e27.co/api/site_user_startups/site_users/?startup_id={startups_details.get("id")}', 
+            callback=self.parse_users,
+            meta={'loader': l, 'startup_id': startups_details.get("id"), 'startup_name': startups_details.get('name')}
+            )
+
+    
+
+    def parse_users(self, response):
+        l = response.meta.get('loader')
+        startup_id = response.meta.get('startup_id')
+        startup_name = response.meta.get('startup_name')
+        users = response.json()['data']['site_users']
+        l.add_value('founders', [
+            User({
+                'startup_id': startup_id,
+                'startup_name': startup_name,
+                'user_id': user.get('site_user_id'),
+                'name': user.get('name'),
+                'headline': user.get('headline'),
+                'url': user.get('url')
+            }) for user in users])
+        yield l.load_item()
