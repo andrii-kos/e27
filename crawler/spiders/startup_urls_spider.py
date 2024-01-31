@@ -1,5 +1,5 @@
 import scrapy
-from tutorial.items import StartupUrlItem
+from crawler.items import StartupUrlItem
 from scrapy import Selector
 
 class UrlsSpider(scrapy.Spider):

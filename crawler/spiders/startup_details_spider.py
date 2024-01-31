@@ -1,5 +1,5 @@
 import scrapy
-from tutorial.items import Startup, StartupLoader, User
+from crawler.items import Startup, StartupLoader, User
 from urllib.parse import urlparse
 import json
 
