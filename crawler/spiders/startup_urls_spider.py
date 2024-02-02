@@ -3,7 +3,7 @@ from crawler.items import StartupUrlItem
 from scrapy import Selector
 
 class UrlsSpider(scrapy.Spider):
-    name ='startup_urls'
+    name ='startup_urls_sitemap'
     start_urls = [
         "https://e27.co/startup_sitemap_index.xml"
         ]

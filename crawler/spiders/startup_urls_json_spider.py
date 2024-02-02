@@ -4,7 +4,7 @@ import json
 
 
 class StartupDetails(scrapy.Spider):
-    name = 'startup_urls_json'
+    name = 'startup_urls'
     custom_settings = {
         'FEED_FORMAT': "csv",
         'FEED_URI': "./startup_urls.csv"
@@ -33,7 +33,8 @@ class StartupDetails(scrapy.Spider):
         for startup in startups:
             startup_url_item = StartupUrlItem()
             id = startup["id"]
-            startup_url_item['link'] = f"https://e27.co/api/startups/get/view/?id={id}"
+            startup_url_item['id'] = id
+            startup_url_item['link'] = f"{startup['link']}"
             yield startup_url_item
 
 

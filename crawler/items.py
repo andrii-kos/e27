@@ -7,6 +7,7 @@ from itemloaders.processors import Join, MapCompose, TakeFirst
 import re
 
 class StartupUrlItem(Item):
+    id = Field()
     link = Field()
 
 
