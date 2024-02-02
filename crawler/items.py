@@ -33,6 +33,10 @@ class Startup(Item):
         input_processor=MapCompose(find_founder),
         output_processor=Join(', ')
     )
+    employee_range = Field(
+        input_processor=MapCompose(lambda user: user['name']),
+        output_processor=Join(', ')
+    )
     company_name = Field()
     profile_url = Field()
     company_website = Field()
@@ -50,9 +54,6 @@ class Startup(Item):
         output_processor=Join(' ')
     )
     location = Field()
-    employee_range = Field(
-         output_processor=Join(', ')
-    )
     urls_social = Field(
         input_processor=MapCompose(str.strip, lambda value: value if value else None),
         output_processor=Join(', ')

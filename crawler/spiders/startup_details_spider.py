@@ -45,7 +45,11 @@ class StartupDetails(scrapy.Spider):
         yield scrapy.Request(
             f'https://e27.co/api/site_user_startups/site_users/?startup_id={startups_details.get("id")}', 
             callback=self.parse_users,
-            meta={'loader': l, 'startup_id': startups_details.get("id"), 'startup_name': startups_details.get('name')}
+            meta={
+                'loader': l, 
+                'startup_id': startups_details.get("id"), 
+                'startup_name': startups_details.get('name')
+                }
             )
 
     
@@ -55,6 +59,15 @@ class StartupDetails(scrapy.Spider):
         startup_id = response.meta.get('startup_id')
         startup_name = response.meta.get('startup_name')
         users = response.json()['data']['site_users']
+        l.add_value('employee_range', [
+            User({
+                'startup_id': startup_id,
+                'startup_name': startup_name,
+                'user_id': user.get('site_user_id'),
+                'name': user.get('name'),
+                'headline': user.get('headline'),
+                'url': user.get('url')
+            }) for user in users])
         l.add_value('founders', [
             User({
                 'startup_id': startup_id,
