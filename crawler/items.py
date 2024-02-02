@@ -46,8 +46,8 @@ class Startup(Item):
         output_processor=Join(', ')
     )
     founding_date = Field(
-        input_processor=MapCompose(str.strip, lambda value: value if value else None),
-        output_processor=Join('-')
+        input_processor=MapCompose(lambda value: value if value and value != '0' else None),
+        output_processor=Join(' ')
     )
     location = Field()
     employee_range = Field(
