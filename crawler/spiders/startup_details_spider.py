@@ -6,6 +6,11 @@ import json
 
 class StartupDetails(scrapy.Spider):
     name = 'startup_details'   
+    custom_settings = {
+        'FEED_FORMAT': "csv",
+        'FEED_URI': "./startup_details.csv"
+    }
+
 
     def start_requests(self):
         with open('test.json', encoding='utf-8') as file:

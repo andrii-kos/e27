@@ -7,6 +7,11 @@ class UrlsSpider(scrapy.Spider):
     start_urls = [
         "https://e27.co/startup_sitemap_index.xml"
         ]
+    
+    custom_settings = {
+        'FEED_FORMAT': "csv",
+        'EED_URI': "./urls.csv"}
+
 
     def parse(self, response):
         sel = Selector(response)
