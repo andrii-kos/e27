@@ -1,7 +1,7 @@
 # scrapy outuput files
-urls.json
-test.json
-startup.json
+startup_details.csv
+startup_urls.csv
+test.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

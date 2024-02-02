@@ -6,8 +6,7 @@ import json
 class StartupDetails(scrapy.Spider):
     name = 'startup_urls'
     custom_settings = {
-        'FEED_FORMAT': "csv",
-        'FEED_URI': "./startup_urls.csv"
+        'FEEDS': {'startup_urls.csv': {'format': 'csv', 'overwrite': True}}
     }
     length = 500
     start_urls = [f'https://e27.co/api/startups/?length={length}&page=1']

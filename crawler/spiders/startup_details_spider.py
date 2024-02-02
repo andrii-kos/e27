@@ -1,22 +1,20 @@
 import scrapy
 from crawler.items import Startup, StartupLoader, User
-from urllib.parse import urlparse
-import json
-
+import csv
+import random
 
 class StartupDetails(scrapy.Spider):
     name = 'startup_details'   
     custom_settings = {
-        'FEED_FORMAT': "csv",
-        'FEED_URI': "./startup_details.csv"
+        'FEEDS': {'startup_details.csv': {'format': 'csv', 'overwrite': True}}
     }
+    number_urls_to_choice = 10
 
 
     def start_requests(self):
-        with open('test.json', encoding='utf-8') as file:
-            for line in json.load(file):
-                startup_id = urlparse(line['link']).query
-                yield scrapy.Request(f'https://e27.co/api/startups/get/view/?{startup_id}', callback=self.parse_starup)
+        with open('test.csv', encoding='utf-8', newline='') as file:
+            for line in random.choices(list(csv.DictReader(file)), k=self.number_urls_to_choice):
+                yield scrapy.Request(f'https://e27.co/api/startups/get/view/?id={line['id']}', callback=self.parse_starup)
         
 
 
