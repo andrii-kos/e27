@@ -2,7 +2,7 @@ import scrapy
 from crawler.items import StartupUrlItem
 from scrapy import Selector
 
-class UrlsSpider(scrapy.Spider):
+class StartupUrlsChemaSpider(scrapy.Spider):
     name ='startup_urls_sitemap'
     start_urls = [
         "https://e27.co/startup_sitemap_index.xml"
@@ -27,8 +27,6 @@ class UrlsSpider(scrapy.Spider):
         sel = Selector(response)
         sel.register_namespace("g", "http://www.sitemaps.org/schemas/sitemap/0.9")
         links = sel.xpath("//g:loc/text()").getall()
-        with open('links.txt', 'a') as file:
-            file.write(str(links))
         for link in links:
             startup_link_item['link'] = link
             yield startup_link_item

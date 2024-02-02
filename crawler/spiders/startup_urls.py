@@ -3,7 +3,7 @@ from crawler.items import StartupUrlItem
 import json
 
 
-class StartupDetails(scrapy.Spider):
+class StartupUrlsSpider(scrapy.Spider):
     name = 'startup_urls'
     custom_settings = {
         'FEEDS': {'startup_urls.csv': {'format': 'csv', 'overwrite': True}}
@@ -32,8 +32,7 @@ class StartupDetails(scrapy.Spider):
         for startup in startups:
             startup_url_item = StartupUrlItem()
             id = startup["id"]
-            startup_url_item['id'] = id
-            startup_url_item['link'] = f"{startup['link']}"
+            startup_url_item['link'] = f"{startup['link']}/?id={id}"
             yield startup_url_item
 
 

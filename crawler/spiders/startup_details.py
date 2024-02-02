@@ -2,19 +2,22 @@ import scrapy
 from crawler.items import Startup, StartupLoader, User
 import csv
 import random
+from urllib.parse import urlparse
 
-class StartupDetails(scrapy.Spider):
+
+class StartupDetailsSpider(scrapy.Spider):
     name = 'startup_details'   
     custom_settings = {
         'FEEDS': {'startup_details.csv': {'format': 'csv', 'overwrite': True}}
     }
-    number_urls_to_choice = 10
 
 
     def start_requests(self):
-        with open('test.csv', encoding='utf-8', newline='') as file:
-            for line in random.choices(list(csv.DictReader(file)), k=self.number_urls_to_choice):
-                yield scrapy.Request(f'https://e27.co/api/startups/get/view/?id={line['id']}', callback=self.parse_starup)
+        with open('startup_urls.csv', encoding='utf-8', newline='') as file:
+            print(self.settings)
+            for line in random.choices(list(csv.DictReader(file)), k=self.settings.get('NUM_URLS_TO_GRAB')):
+                id_query= urlparse(line['link']).query
+                yield scrapy.Request(f'https://e27.co/api/startups/get/view/?{id_query}', callback=self.parse_starup)
         
 
 
